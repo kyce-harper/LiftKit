@@ -3,6 +3,7 @@
 **App Store Link:** [Download on the App Store](https://apps.apple.com/us/app/liftkit-gym-workout-log/id6756804418)  
 **Status:** v1.0.1 (Pre-Order Jan 1st Launch)
 
+[**Support Form**](https://forms.gle/frPivgKerdN6oJVF8)
 ## Overview
 
 LiftKit is a native iOS application designed for strength training tracking with a focus on performance and minimal friction. Unlike commercial competitors that rely on web-views or subscription models, LiftKit is built as a fully native Swift application using modern Apple frameworks. With Privacy and Owning being the primary goal.
@@ -50,6 +51,8 @@ The application follows a strict MVVM architecture to decouple logic from the UI
 
 ## Contact
 
-**Developer:** [Your Name]
-**Portfolio:** [Link to your website]
-**LinkedIn:** [Link to your LinkedIn]
+**Created By:** Kyce Harper.
+
+[**Portfolio**](https://kyceharper.me/).
+
+[**LinkedIn**](https://www.linkedin.com/in/kyce-harper-87a8212b2/).
