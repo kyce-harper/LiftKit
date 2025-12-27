@@ -1,87 +1,55 @@
-# 🏋️ **LiftLog: The Strength Tracker Built for the Dedicated**
+# LiftKit - iOS Workout Logger
 
-If you're like me, you're tired of workout apps that have subscriptions, AI garbage, and social features nobody asked for. **LiftLog** is the solution: it's a simple and robust strength tracker I built for myself—and for every other lifters who believes progress comes from the iron, not the algorithm.
+**App Store Link:** [Download on the App Store](https://apps.apple.com/us/app/liftkit-gym-workout-log/id6756804418)  
+**Status:** v1.0.1 (Pre-Order Jan 1st Launch)
 
-This isn't a complex piece of software. It's a precise, private tool that respects your expertise and keeps your focus where it belongs: the next heavy set. I want it to be like a notebook and pencil that you cary around.
+## Overview
 
------
+LiftKit is a native iOS application designed for strength training tracking with a focus on performance and minimal friction. Unlike commercial competitors that rely on web-views or subscription models, LiftKit is built as a fully native Swift application using modern Apple frameworks. With Privacy and Owning being the primary goal.
 
-## 🧠 The Philosophy: Master Your Own Program
+From an engineering standpoint my goal was to make this app standout by reducing the "time-to-log" for users while maintaining data integrity for long-term progress visualization.
 
-The best training programs are written by you. You don't need generic AI suggestions; you need reliable data.
+![App Screenshot Placeholder](path/to/screenshot.png)
 
-  * **100% Data Ownership:** Your logs stay on your device. Period. We use **Core Data** for rock-solid local persistence. No cloud, no account creation, no data collection. **Privacy isn't a feature; it's the foundation.**
-  * **A Fair Transaction:** This is a professional tool. Buy it once, own it forever. No monthly fees, no hidden tiers.
-  * **Progressive Overload, Simplified:** We make the hardest part of lifting—beating your last performance—the easiest part of logging.
+## Tech Stack
 
------
+* **Language:** Swift 6
+* **UI Framework:** SwiftUI
+* **Data Persistence:** SwiftData (replacing Core Data for modern concurrency support)
+* **Visualization:** Apple Charts Framework
+* **Architecture:** MVVM (Model-View-ViewModel)
+* **Version Control:** Git
 
-## ✨ Core Functionality & Technical Execution
+## Basic Feature Flow
 
-LiftLog provides only the essentials, engineered to work flawlessly every time.
+- **Custom Workout Templates:** Users can build reusable routine "blueprints" that auto-populate weight and rep targets based on previous sessions.
+- **Active Session Mode:** A focused, distraction-free interface for logging sets in real-time and shows PR (Personal Record) for exercises globally supporting progress no matter the template the workout is in.
+- **Progress Visualization:** Very important for weightlifting, Dynamic rendering of volume and 1RM (One Rep Max) trends using Swift Charts.
+- **Offline First:** Full functionality without network requirements; all data is stored locally on-device. No data collection.
+- **You Buy, You Own** No subscriptions or in app purchases
 
-  * **Template Flow:** Define your workouts (**`WorkoutTemplate`**) and the exercises (**`TemplateExercise`**) within them. This blueprint structure is clean, fast, and repeatable.
-  * **The Overload Cue:** When starting an exercise, the app instantly queries your local database to display your **most recent weight and reps**. This immediate feedback is the only "AI" you need to ensure you're adding weight or hitting extra reps.
-  * **Rock-Solid History:** Your logs are structured beautifully. Every session is recorded as a dedicated **`WorkoutSession`**, allowing you to review entire workouts, not just scattered sets. You can drill down into any date to see the **set-by-set breakdown**.
+## System Architecture
 
------
+The application follows a strict MVVM architecture to decouple logic from the UI.
 
-## 🛣️ Roadmap & Community Strategy
+* **Models:** Define the core data (`Workout`, `Exercise`, `Set`) using SwiftData.
+* * **Views:** Basic SwiftUI views that observe the ViewModel state.
+* **ViewModels:** Handle logic, such as calculating 1RM, validatng user input, managing the state of the active workout session, and storing and accessing data.
 
-LiftLog is built to be stable and dependable first. While the core feature set is almost complete, future development will be dictated by community/family/personal feedback and a continued commitment to gym gains haha
-
-### Pricing Model
-
-The application will be released on the Apple App Store for a **one-time flat price**. This purchase grants lifetime access to the current feature set and all future updates. No subscriptions, ever.
-
-### Open Source & Support
-
-This project is **open source**. I encourage developers to inspect the architecture, submit fixes, and propose enhancements.
-
-While the app will be open to contribution, I appreciate support for the time invested in its development and maintenance. The one-time App Store purchase serves as the primary way to support the project and myself. (Apple liscense is expensive lol)
-
-### Future Development Plans
-
-| Phase | Focus Area | Goal |
-| :--- | :--- | :--- |
-| **V1.0 - Stability** | Polish & UX Refinement | Add user settings (e.g., default weight unit), improve keyboard focus in the logging view, and ensure robust Core Data performance on ios devices. |
+### Data Flow
+1.  User initiates a workout -> ViewModel fetches the `Template` object.
+2.  Session data is held in a temp state (`ActiveWorkoutManager`) to prevent trash values from abandoned sessions.
+3.  Upon completion, the manager commits the transaction to the persistent SwiftData container. Seperating templates from sessions meaning progress between exercises is not lost if workout templates are changed/ deleted.
 
 
------
+## Future Development
 
-## 📈 What I'm Learning: Software Engineering Mastery
+* **WatchOS Support:** Standalone logging from Apple Watch.
+* **CloudKit Sync:** Optional backup for users with multiple devices.
+* **Haptic Feedback:** Custom vibration patterns for rest timer completion celebrating new PRs/ workout completions
 
-Building LiftLog has been an exercise in disciplined software architecture, solidifying core Computer Science principles and production-ready techniques:
+## Contact
 
-  * **System Architecture & Resource Management (SDA):** By implementing the **Singleton Pattern** with the `PersistenceController`, I mastered the control of critical shared resources. This design ensures that only one **Core Data stack** manages the database file, eliminating potential concurrency issues and data races—a key requirement for stable production systems.
-  * **Relational Data Integrity:** I designed the **One-to-Many** data model spanning four distinct entities (`Template`, `Exercise`, `Session`, `Set`). This required deep knowledge of setting up foreign keys and inverse relationships within Core Data to guarantee **referential integrity** (e.g., ensuring a `LoggedSet` always points back to a valid `WorkoutSession` and `TemplateExercise`).
-  * **Data Structures & Ordering Logic:** The application uses a custom solution for **ordered list persistence**. The `order` attribute on `TemplateExercise` is manually calculated (`currentMaxOrder + 1`), demonstrating a practical application of maintaining sequential data structures in a persistent environment without relying solely on creation timestamp.
-  * **Performance Optimization:** For a read-heavy app like a log, performance is critical. I configured the Core Data **Managed Object Context** by disabling the `undoManager` and enabling `automaticallyMergesChangesFromParent`, which significantly reduces memory overhead and improves UI responsiveness, especially during heavy data manipulation.
-
------
-
-## 🚀 Get Started (Developer Setup)
-
-Check out the code, verify the simplicity, and appreciate the execution.
-
-1.  **Prerequisites:** Xcode 15+ (or compatible version).
-
-2.  **Clone the Repository:**
-
-    ```bash
-    git clone https://github.com/your-username/liftlog.git
-    cd liftlog
-    ```
-
-3.  **Preview Setup:** The project contains both a functional **`preview`** (with sample data) and an **`emptyPreview`** configuration. This separation allows for clean state-testing (empty views) and feature-testing (populating the `HistoryView`), demonstrating proper decoupling of testing environments.
-
-This project proves you don't need complexity to solve a core user problem. You just need thoughtful engineering and respect for the user's intelligence.
-## 📊 UML Diagram
-
-Here’s the Core Data model that powers **LiftLog**, representing the relationships between templates, sessions, exercises, and logged sets.
-
-<p align="center">
-  <img src="./UML%20Diagram%20for%20CoreData%20setup.png" alt="LiftLog Core Data UML Diagram" width="700"/>
-</p>
-
-
+**Developer:** [Your Name]
+**Portfolio:** [Link to your website]
+**LinkedIn:** [Link to your LinkedIn]
