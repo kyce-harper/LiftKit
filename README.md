@@ -1,5 +1,7 @@
 # LiftKit - iOS Workout Log
 
+**Downloads: 6 and Growing 💪**
+
 **App Store Link:** [Download on the App Store](https://apps.apple.com/us/app/liftkit-gym-workout-log/id6756804418)  
 **Status:** v1.0.1 
 
@@ -50,7 +52,7 @@ The application follows a strict MVVM architecture to decouple logic from the UI
 
 
 ## Future Development
-
+* **#1 Priority is to make a Freestyle Mode** No need to start a workout plan, if you are working out with a friend or trying something new you can still log your exercises.
 * **WatchOS Support:** Standalone logging from Apple Watch.
 * **CloudKit Sync:** Optional backup for users with multiple devices.
 * **Haptic Feedback:** Custom vibration patterns for rest timer completion celebrating new PRs/ workout completions
