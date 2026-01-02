@@ -10,7 +10,13 @@ LiftKit is a native iOS application designed for strength training tracking with
 
 From an engineering standpoint my goal was to make this app standout by reducing the "time-to-log" for users while maintaining data integrity for long-term progress visualization.
 
-![App Screenshot Placeholder](path/to/screenshot.png)
+<table>
+  <tr>
+    <td><img src="Assets/AppStoreAsset1.png" width="90%"></td>
+    <td><img src="Assets/AppStoreAsset2.png" width="90%"></td>
+    <td><img src="Assets/AppStoreAsset3.png" width="90%"></td>
+  </tr>
+</table>
 
 ## Tech Stack
 
