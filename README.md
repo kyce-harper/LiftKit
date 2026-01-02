@@ -1,7 +1,7 @@
 # LiftKit - iOS Workout Log
 
 **App Store Link:** [Download on the App Store](https://apps.apple.com/us/app/liftkit-gym-workout-log/id6756804418)  
-**Status:** v1.0.1 (Pre-Order Jan 1st Launch)
+**Status:** v1.0.1 
 
 [**Support Form**](https://forms.gle/frPivgKerdN6oJVF8)
 ## Overview
