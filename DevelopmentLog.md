@@ -2,7 +2,21 @@
 
 All notable changes to the LiftKit project will be documented in this file.
 
-## [v1.0.1] - 2026-01-01 (Official Release)
+## [v1.02] - 2026-01-07
+
+### Added
+* Freestyle Mode! spontanious lifting session with friends? I got you covered so you can still log those gains and maintain growth!
+
+### Fixed
+* No Bug Fixes Addressed
+
+### Engineers Notes
+I created a new UI view called FreestyleWorkoutView. It creates in-memory 'session' objects,
+Its independent from sessionmanager.active session and only persists when user clicks "Finish and Save".
+I reused {session" "session exercise" "sessionset"} models no changes being made. The UI is also mirrored from activesessionview to keep a consistent user exerpience.
+
+
+## [v1.01] - 2026-01-01 (Launch)
 
 ### Added
 * Changed Homescreen Icon
