@@ -1,6 +1,8 @@
 # LiftKit - iOS Workout Log
 
-**Downloads: 6 and Growing 💪**
+**Downloads: 20 and Growing 💪**
+**App Store Rating 4.5/5**<img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/f928c499-7efe-4e61-8976-766a077659b9" />
+
 
 **App Store Link:** [Download on the App Store](https://apps.apple.com/us/app/liftkit-gym-workout-log/id6756804418)  
 **Status:** v1.02, Freestyle mode now available!
