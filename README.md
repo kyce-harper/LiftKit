@@ -1,7 +1,7 @@
 # LiftKit - iOS Workout Log
 <img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/f928c499-7efe-4e61-8976-766a077659b9" />
 
-**Downloads: 20 and Growing**
+**Downloads: 38 and Growing**
 
 **App Store Rating 4.5/5**
 
